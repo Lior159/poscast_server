@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio Player</title>
+    <link rel="stylesheet" href="/player_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="audio-player">
+      <img src="<%= imgUrl %>" alt="Audio Thumbnail" class="audio-thumbnail" />
+      <audio id="audio" src="<%= audioUrl %>"></audio>
+      <div class="seek-bar">
+        <input type="range" id="seek" value="0" max="100" />
+        <div class="time">
+          <span id="current-time">0:00</span> /
+          <span id="total-time">0:00</span>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="backward"><i class="fa-solid fa-rotate-left"></i></button>
+        <button id="play"><i class="fa-regular fa-circle-play"></i></button>
+        <button id="stop"><i class="fa-regular fa-circle-stop"></i></button>
+        <button id="forward">
+          <i class="fa-solid fa-arrow-rotate-right"></i>
+        </button>
+      </div>
+    </div>
+    <script src="/player_script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podcast Episodes</title>
+    <link rel="stylesheet" href="/episodes_styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <% if (podcast && podcast.episodes.length > 0) { %>
+    <div class="podcast-header">
+      <img src="<%= podcast.imageUrl %>" alt="Logo" />
+      <h1><%= podcast.name %></h1>
+    </div>
+    <div class="episodes-list">
+      <% for (let episode of podcast.episodes) { %>
+      <a
+        href="/podcasts/<%= podcast.uuid %>/<%= episode.uuid %>"
+        class="episode"
+      >
+        <div dir="ltr" class="details"><%= episode.datePublished %></div>
+        <h2><%= episode.name %></h2>
+        <div dir="ltr" class="details"><b><%= episode.duration %></b></div>
+      </a>
+      <% } %>
+    </div>
+    <% } else { %>
+    <h1>Podcasts Not Found!</h1>
+    <% } %>
+  </body>
+</html>
